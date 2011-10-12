@@ -1,0 +1,59 @@
+<f:layout name="Default" />
+
+<f:section name="Title">Session Testing Suite</f:section>
+
+<f:section name="Content">
+	<h2>Session</h2>
+	<table>
+		<tr><th>Started ?</th><td><f:if condition="{session.started}"><f:then>yes</f:then><f:else>no</f:else></f:if></td></tr>
+		<f:if condition="{session.started}"><tr><th>ID</th><td>{session.id}</td></tr></f:if>
+	</table>
+
+	<h2>Security Context</h2>
+	<table>
+		<tr><th>Initialized before this block?</th><td><f:if condition="{securityContext.initialized}"><f:then>yes</f:then><f:else>no</f:else></f:if></td></tr>
+		<tr><th>Roles</th><td>
+			<ul>
+				<f:for each="{securityContext.roles}" as="role">
+					<li>{role}</li>
+				</f:for>
+			</ul>
+		</td></tr>
+		<tr><th>Account</th><td><f:if condition="{securityContext.account}"><f:then>{securityContext.account.accountIdentifier}</f:then><f:else>none</f:else></f:if></td></tr>
+		<tr><th>Initialized after this block?</th><td><f:if condition="{securityContext.initialized}"><f:then>yes</f:then><f:else>no</f:else></f:if></td></tr>
+	</table>
+
+	<h2>Shopping Basket</h2>
+
+	<f:if condition="{shoppingBasket.items}">
+		<f:then>
+			<ul>
+			<f:for each="{shoppingBasket.items}" as="item">
+				<li>{item.name}</li>
+			</f:for>
+			</ul>
+		</f:then>
+		<f:else>
+			empty
+		</f:else>
+	</f:if>
+
+	<p><f:link.action action="add">Add some item</f:link.action></p>
+
+	<h2>Login</h2>
+
+	<p><f:link.action action="createAccount">Create admin account</f:link.action></p>
+
+	<p>Use "admin" and "password":</p>
+
+	<f:form action="authenticate" method="post" name="loginform">
+		<input type="text" id="username"
+		name="__authentication[TYPO3][FLOW3][Security][Authentication][Token][UsernamePassword][username]"
+		value="admin" tabindex="1" />
+		<input type="password" id="password"
+		name="__authentication[TYPO3][FLOW3][Security][Authentication][Token][UsernamePassword][password]"
+		value="password" tabindex="2" />
+		<input type="submit" value="Login" tabindex="3" />
+	</f:form>
+
+</f:section>
