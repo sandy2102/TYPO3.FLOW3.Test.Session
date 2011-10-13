@@ -81,7 +81,8 @@ class ShoppingBasketController extends ActionController {
 		$item->setName(uniqid('Some item'));
 
 		$this->shoppingBasket->addItem($item);
-
+#\TYPO3\FLOW3\var_dump($this->shoppingBasket);
+#return 'x';
 		$this->redirect('index');
 	}
 
@@ -98,10 +99,18 @@ class ShoppingBasketController extends ActionController {
 	}
 
 	/**
-	 *
+	 * @return void
 	 */
 	public function authenticateAction() {
 		$this->authenticationManager->authenticate();
+		$this->redirect('index');
+	}
+
+	/**
+	 * @return void
+	 */
+	public function logoutAction() {
+		$this->authenticationManager->logout();
 		$this->redirect('index');
 	}
 

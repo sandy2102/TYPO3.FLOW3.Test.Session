@@ -3,6 +3,9 @@
 <f:section name="Title">Session Testing Suite</f:section>
 
 <f:section name="Content">
+
+	<f:flashMessages />
+
 	<h2>Session</h2>
 	<table>
 		<tr><th>Started ?</th><td><f:if condition="{session.started}"><f:then>yes</f:then><f:else>no</f:else></f:if></td></tr>
@@ -55,5 +58,7 @@
 		value="password" tabindex="2" />
 		<input type="submit" value="Login" tabindex="3" />
 	</f:form>
+
+	<p></p><f:link.action action="logout">Logout</f:link.action></p>
 
 </f:section>
