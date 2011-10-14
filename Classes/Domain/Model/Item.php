@@ -6,11 +6,14 @@ namespace TYPO3\FLOW3\Test\Session\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use Doctrine\ORM\Mapping as ORM;
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  * A Item
  *
- * @scope prototype
- * @entity
+ * @FLOW3\Scope("prototype")
+ * @FLOW3\Entity
  */
 class Item {
 

@@ -10,45 +10,48 @@ use \TYPO3\FLOW3\MVC\Controller\ActionController;
 use \TYPO3\FLOW3\Test\Session\Domain\Model\ShoppingBasket;
 use \TYPO3\FLOW3\Test\Session\Domain\Model\Item;
 
+use Doctrine\ORM\Mapping as ORM;
+use TYPO3\FLOW3\Annotations as FLOW3;
+
 /**
  * ShoppingBasket controller for the TYPO3.FLOW3.Test.Session package
  *
- * @scope singleton
+ * @FLOW3\Scope("singleton")
  */
 class ShoppingBasketController extends ActionController {
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Security\Context
 	 */
 	protected $securityContext;
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Session\SessionInterface
 	 */
 	protected $session;
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Test\Session\Domain\Model\ShoppingBasket
 	 */
 	protected $shoppingBasket;
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Test\Session\Domain\Repository\ItemRepository
 	 */
 	protected $itemRepository;
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Security\AccountRepository
 	 */
 	protected $accountRepository;
 
 	/**
-	 * @inject
+	 * @FLOW3\Inject
 	 * @var \TYPO3\FLOW3\Security\AccountFactory
 	 */
 	protected $accountFactory;
@@ -56,7 +59,7 @@ class ShoppingBasketController extends ActionController {
 	/**
 	 * The authentication manager
 	 * @var \TYPO3\FLOW3\Security\Authentication\AuthenticationManagerInterface
-	 * @inject
+	 * @FLOW3\Inject
 	 */
 	protected $authenticationManager;
 
